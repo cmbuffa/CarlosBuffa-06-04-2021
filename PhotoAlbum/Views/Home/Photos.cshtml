@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PhotoAlbum.Models.Photo>
+
+@{
+    ViewData["Title"] = "Photos";
+}
+
+<h2>Photos</h2>
+<div class="tabla">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ThumbnailUrl)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        <img src="@item.ThumbnailUrl" />
+                    </td>
+                    <td>
+                        <input id="btnSearch" class="btn btn-link" type="submit" value="View Comments" onclick="GetComments({ id: @item.Id})" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+
+<div id="insertComments">
+
+</div>
