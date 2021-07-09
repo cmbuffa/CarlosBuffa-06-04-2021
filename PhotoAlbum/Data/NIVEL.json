@@ -1,0 +1,3 @@
+{
+	"NIVEL":
+	[		{			"NIVEL":1,			"NOMNIVEL":"OPERACIONAL"		},		{			"NIVEL":2,			"NOMNIVEL":"ADMINISTRATIVO"		},		{			"NIVEL":3,			"NOMNIVEL":"TECNICO"		},		{			"NIVEL":4,			"NOMNIVEL":"PROFESIONAL"		},		{			"NIVEL":5,			"NOMNIVEL":"NO DEFINIDO"		}    ]}

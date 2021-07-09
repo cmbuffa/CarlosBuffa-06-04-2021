@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using PhotoAlbum.Models;
 using PhotoAlbum.Services;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -40,6 +42,19 @@ namespace PhotoAlbum.Controllers
         {
             
             return PartialView("_ComentsPartial", (await clientAPI.GetCommnets(id)).ToList());
+        }
+
+        [HttpGet("json/{cedula}")]
+        public async Task<IActionResult> GetJson(int cedula)
+        {
+            var fileContent = System.IO.File.ReadAllText(@"./Data/extraba.json");
+
+
+            var json = JsonConvert.DeserializeObject<ExtrabaList>(fileContent);
+
+            var resultado = json.Extraba.Where(e => e.Cedula == cedula).SingleOrDefault();
+
+            return Ok(resultado);
         }
     }
 }
